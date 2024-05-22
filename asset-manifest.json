@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/city-builder/static/css/main.5d8bebb8.chunk.css",
+    "main.js": "/city-builder/static/js/main.18f2f08a.chunk.js",
+    "main.js.map": "/city-builder/static/js/main.18f2f08a.chunk.js.map",
+    "runtime-main.js": "/city-builder/static/js/runtime-main.b5ed8b15.js",
+    "runtime-main.js.map": "/city-builder/static/js/runtime-main.b5ed8b15.js.map",
+    "static/js/2.5074ac46.chunk.js": "/city-builder/static/js/2.5074ac46.chunk.js",
+    "static/js/2.5074ac46.chunk.js.map": "/city-builder/static/js/2.5074ac46.chunk.js.map",
+    "index.html": "/city-builder/index.html",
+    "precache-manifest.674779bf5e39d4eb61e763052a5a7358.js": "/city-builder/precache-manifest.674779bf5e39d4eb61e763052a5a7358.js",
+    "service-worker.js": "/city-builder/service-worker.js",
+    "static/css/main.5d8bebb8.chunk.css.map": "/city-builder/static/css/main.5d8bebb8.chunk.css.map",
+    "static/js/2.5074ac46.chunk.js.LICENSE.txt": "/city-builder/static/js/2.5074ac46.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5ed8b15.js",
+    "static/js/2.5074ac46.chunk.js",
+    "static/css/main.5d8bebb8.chunk.css",
+    "static/js/main.18f2f08a.chunk.js"
+  ]
+}
