@@ -25,14 +25,14 @@
 
 .tiles-library .tile {
   width: 50%;
+  height: 150px;
   max-width: 90px;
   transition: background 0.2s;
 }
 
 .tiles-library .tile .tile-img {
-  background-image: url(../assets/tiles_130x66_130x230.png);
   background-repeat: no-repeat;
-  background-size: 1200%;
+  background-size: 100%;
   padding-top: calc(230 / 130 * 100%);
 }
 

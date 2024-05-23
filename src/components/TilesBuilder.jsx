@@ -11,12 +11,14 @@ import {
 import { debouce, saveToHash } from "providers/utils";
 
 //const hash = "eyJncmlkU2l6ZSI6NiwidGlsZXMiOlswLDQ0LDQ0LDQ0LDQ0LDAsNDUsNzAsNjUsNjQsNDksNDMsNDUsNiwxLDYsNDksNDMsNDUsMzgsOCw0MCw0OSw0Myw0NSw2OSw2LDcxLDQ4LDQzLDAsNDIsNiw0Miw0MiwwXX0=";
-const { gridSize: baseGridSize, tiles: baseTiles } = loadStateFromHash(6);
+// const { gridSize: baseGridSize, tiles: baseTiles } = loadStateFromHash(6);
 
 let lastHash = "";
 
+const baseTiles = [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
 export default function TilesBuilder() {
-  const [gridSize, setGridSize] = useState(baseGridSize);
+  const [gridSize, setGridSize] = useState(6);
   const [tiles, setTiles] = useState(baseTiles);
   const [selectedTile, setSelectedTile] = useState(0);
 

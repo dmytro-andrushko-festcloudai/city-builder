@@ -7,9 +7,9 @@
 }
 
 .tiles-view .tile {
-  background-image: url(../assets/tiles_130x66_130x230.png);
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: 100% auto;
+  background-position: bottom;
   width: 130px;
   height: 230px;
   position: absolute;
@@ -21,7 +21,7 @@
   width: 130px;
   height: 130px;
   display: block;
-  transform: translate(0px, 97px) scale(0.7, 0.35) rotate(45deg);
+  transform: translate(0px, 123px) scale(0.7, 0.40) rotate(45deg);
   pointer-events: all;
   will-change: opacity;
   opacity: 0;
