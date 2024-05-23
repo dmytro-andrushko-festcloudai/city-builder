@@ -3,8 +3,8 @@ import { loadFromHash } from "./utils";
 export const constants = {
   numTilesX: 12,
   numTilesY: 6,
-  tileSizeX: 130,
-  tileSizeY: 230
+  tileSizeX: 260,
+  tileSizeY: 460
 };
 
 export const indexToTileXY = i => {
@@ -48,8 +48,8 @@ export const indexToViewPosition = (
   const { tileX, tileY } = indexToPosition(i, gridSize);
 
   return {
-    left: `${(tileX - tileY - 1) * 64 + offsetX}px`,
-    top: `${(tileX + tileY) * 32 + offsetY}px`
+    left: `${(tileX - tileY - 1) * 128 + offsetX}px`,
+    top: `${(tileX + tileY) * 73 + offsetY}px`
   };
 };
 

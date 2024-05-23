@@ -8,7 +8,9 @@
   overflow: scroll;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
+  align-items: flex-start;
   background: #444;
 }
 
@@ -24,18 +26,32 @@
 }
 
 .tiles-library .tile {
-  width: 50%;
-  height: 150px;
-  max-width: 90px;
+  height: 100px;
   transition: background 0.2s;
+  outline: 1px solid red;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tiles-library .tile:hover {
+  background: #ffbb0053;
 }
 
 .tiles-library .tile .tile-img {
   background-repeat: no-repeat;
   background-size: 100%;
+  background-position: 0 -43px;
   padding-top: calc(230 / 130 * 100%);
 }
 
 .tiles-library .tile.selected {
   background: #ffbc00;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
 }

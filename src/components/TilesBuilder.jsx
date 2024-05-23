@@ -1,26 +1,28 @@
-import "./TilesBuilder.css";
 import React, { useState, useEffect } from "react";
-import Header from "components/Header";
+import Header from "components/header/Header";
 import TilesLibrary from "components/TilesLibrary";
-import TilesView from "components/TilesView";
+import CityBuilder from "components/cityBuilder/CityBuilder";
+import CityViewer from "components/cityViewer/CityViewer";
 import {
   createTiles,
   updateGridSize,
-  loadStateFromHash
+  loadStateFromHash,
 } from "providers/TilesService";
 import { debouce, saveToHash } from "providers/utils";
-
-//const hash = "eyJncmlkU2l6ZSI6NiwidGlsZXMiOlswLDQ0LDQ0LDQ0LDQ0LDAsNDUsNzAsNjUsNjQsNDksNDMsNDUsNiwxLDYsNDksNDMsNDUsMzgsOCw0MCw0OSw0Myw0NSw2OSw2LDcxLDQ4LDQzLDAsNDIsNiw0Miw0MiwwXX0=";
-// const { gridSize: baseGridSize, tiles: baseTiles } = loadStateFromHash(6);
+import "./TilesBuilder.css";
 
 let lastHash = "";
 
-const baseTiles = [0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+const baseTiles = [
+  3, 0, 0, 2, 0, 2, 0, 5, 0, 0, 3, 0, 3, 0, 5, 3, 0, 3, 0, 4, 2, 0, 0, 0, 5, 4,
+  0, 0, 0, 5, 3, 0, 4, 0, 0, 4,
+];
 
 export default function TilesBuilder() {
   const [gridSize, setGridSize] = useState(6);
   const [tiles, setTiles] = useState(baseTiles);
   const [selectedTile, setSelectedTile] = useState(0);
+  const [isEditMode, setIsEditMode] = useState(true);
 
   useEffect(() => {
     window.addEventListener("hashchange", onHashChange);
@@ -34,7 +36,7 @@ export default function TilesBuilder() {
     debouce(() => {
       lastHash = saveToHash({ gridSize, tiles });
     }, delay);
-  const onHashChange = ev => {
+  const onHashChange = (ev) => {
     const newHash = new URL(ev.newURL).hash.substr(1);
     if (lastHash !== newHash) {
       lastHash = newHash;
@@ -58,7 +60,7 @@ export default function TilesBuilder() {
       updateHash(0);
     }
   };
-  const handleGridSizeChange = ev => {
+  const handleGridSizeChange = (ev) => {
     const newValue = Number(ev.target.value);
     const newTiles = updateGridSize(gridSize, newValue, tiles);
 
@@ -79,7 +81,7 @@ export default function TilesBuilder() {
   /**
    * Library handlers
    */
-  const handleSelect = newSelection => {
+  const handleSelect = (newSelection) => {
     if (newSelection !== selectedTile) {
       setSelectedTile(newSelection);
     }
@@ -95,8 +97,12 @@ export default function TilesBuilder() {
 
     updateHash();
   };
-  const leftClick = tileIdx => setTile(tileIdx, selectedTile);
-  const rightClick = tileIdx => setTile(tileIdx, 0);
+  const leftClick = (tileIdx) => setTile(tileIdx, selectedTile);
+  const rightClick = (tileIdx) => setTile(tileIdx, 0);
+
+  const editHandler = () => {
+    setIsEditMode((prev) => !prev);
+  };
 
   return (
     <div className="tiles-builder">
@@ -106,14 +112,30 @@ export default function TilesBuilder() {
         onGridSizeChange={handleGridSizeChange}
         onRandomize={randomize}
         onClear={clear}
+        isEditMode={isEditMode}
+        onEditHandler={editHandler}
       />
-      <TilesLibrary selectedTile={selectedTile} onSelect={handleSelect} />
-      <TilesView
-        tiles={tiles}
-        gridSize={gridSize}
-        onLeftClick={leftClick}
-        onRightClick={rightClick}
-      />
+
+      {isEditMode && (
+        <TilesLibrary selectedTile={selectedTile} onSelect={handleSelect} />
+      )}
+
+      {isEditMode ? (
+        <CityBuilder
+          tiles={tiles}
+          gridSize={gridSize}
+          onLeftClick={leftClick}
+          onRightClick={rightClick}
+          selectedTile={selectedTile}
+        />
+      ) : (
+        <CityViewer
+          tiles={tiles}
+          gridSize={gridSize}
+          onLeftClick={leftClick}
+          onRightClick={rightClick}
+        />
+      )}
     </div>
   );
 }

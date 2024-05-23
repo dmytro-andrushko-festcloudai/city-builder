@@ -1,0 +1,42 @@
+.tilesView {
+  height: calc(100% - 32px);
+  flex-grow: 1;
+  overflow: scroll;
+  position: relative;
+  background: #2a3444;
+}
+
+.tile {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+  width: 260px;
+  height: 460px;
+  position: absolute;
+  pointer-events: none;
+}
+
+.tileBtn {
+  background: rgba(0, 0, 0, 0.4);
+  width: 260px;
+  height: 260px;
+  display: block;
+  transform: translate(0px, 253px) scale(0.7, 0.4) rotate(45deg);
+  pointer-events: all;
+  will-change: opacity;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.tile-btn:hover {
+  opacity: 1;
+}
+
+.withHover:hover {
+  background-image: var(--hover-image) !important;
+}
+
+.withError .tileBtn:hover {
+  background: rgba(255, 38, 38, 0.4);
+  opacity: 1;
+}

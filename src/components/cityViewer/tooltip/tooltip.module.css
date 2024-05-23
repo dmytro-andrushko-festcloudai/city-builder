@@ -1,0 +1,40 @@
+.tooltip {
+  background-color: #f54349;
+  height: 200px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+
+  color: white;
+  border: 1px solid #e53b39;
+  z-index: 1;
+  pointer-events: all;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: unset;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  background-color: unset;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  background-color: #e53b39;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  text-align: start;
+}
