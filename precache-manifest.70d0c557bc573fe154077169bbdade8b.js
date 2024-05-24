@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a337c511bc257f67018ee562f63591f",
+    "revision": "444fb4ad0dd4f7bbe615650afd4a76c9",
     "url": "/city-builder/index.html"
   },
   {
-    "revision": "f110b47387f2da2e2560",
-    "url": "/city-builder/static/css/main.509d92ba.chunk.css"
+    "revision": "5dc52e3b1322472ecbf8",
+    "url": "/city-builder/static/css/main.a707dba5.chunk.css"
   },
   {
-    "revision": "9c521260723947bf93a1",
-    "url": "/city-builder/static/js/2.9ec89dc3.chunk.js"
+    "revision": "7da4d11ef14977893afc",
+    "url": "/city-builder/static/js/2.ce678df2.chunk.js"
   },
   {
     "revision": "58258b32c9b200f153040c762fffa468",
-    "url": "/city-builder/static/js/2.9ec89dc3.chunk.js.LICENSE.txt"
+    "url": "/city-builder/static/js/2.ce678df2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f110b47387f2da2e2560",
-    "url": "/city-builder/static/js/main.6901c9f5.chunk.js"
+    "revision": "5dc52e3b1322472ecbf8",
+    "url": "/city-builder/static/js/main.783814a0.chunk.js"
   },
   {
     "revision": "c20a4bc85d06b0008643",
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/city-builder/static/media/Ground.f403a60e.png"
   },
   {
-    "revision": "e6952de91400d9d3db603360a4f90f4a",
-    "url": "/city-builder/static/media/Pravda.e6952de9.png"
+    "revision": "cb766296ddcbf17a9dda2ebac85ea514",
+    "url": "/city-builder/static/media/Pravda.cb766296.png"
   },
   {
     "revision": "972d65d7855bea455e47903f4afb4ccb",
