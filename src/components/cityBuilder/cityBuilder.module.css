@@ -39,4 +39,5 @@
 .withError .tileBtn:hover {
   background: rgba(255, 38, 38, 0.4);
   opacity: 1;
+  cursor: not-allowed;
 }

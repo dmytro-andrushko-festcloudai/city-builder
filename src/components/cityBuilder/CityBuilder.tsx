@@ -1,3 +1,4 @@
+import ScrollContainer from "react-indiana-drag-scroll";
 import { indexToViewPosition } from "../../providers/TilesService";
 import { BLOCK_LIBRARY, BLOCK_TYPES } from "../../constants";
 import style from "./cityBuilder.module.css";
@@ -42,14 +43,10 @@ const CityBuilder = ({
       }
     }
   };
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (e.buttons) {
-      handleClick(e);
-    }
-  };
+
 
   return (
-    <div className={style.tilesView} onMouseMove={handleMouseMove}>
+    <ScrollContainer className={style.tilesView}>
       {tiles.map((tile, i) => {
         const { top, left } = indexToViewPosition(
           i,
@@ -82,7 +79,7 @@ const CityBuilder = ({
           </div>
         );
       })}
-    </div>
+    </ScrollContainer>
   );
 };
 

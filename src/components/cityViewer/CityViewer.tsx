@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
 import { indexToViewPosition } from "../../providers/TilesService";
 import Tooltip2 from "./tooltip/Tooltip";
 import style from "./cityViewer.module.css";
@@ -64,7 +65,7 @@ export default function CityViewer({
   };
 
   return (
-    <div className={style.tilesView}>
+    <ScrollContainer className={style.tilesView}>
       {tiles.map((tile, i) => {
         const { top, left } = indexToViewPosition(
           i,
@@ -127,6 +128,6 @@ export default function CityViewer({
           </div>
         );
       })}
-    </div>
+    </ScrollContainer>
   );
 }

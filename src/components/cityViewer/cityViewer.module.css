@@ -4,6 +4,7 @@
   overflow: scroll;
   position: relative;
   background: #2a3444;
+  width: 100%;
 }
 
 .tile {
