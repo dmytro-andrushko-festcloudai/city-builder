@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Header from "./header/Header";
-import TilesLibrary from "./sideBar/SideBar";
-import CityBuilder from "./cityBuilder/CityBuilder";
-import CityViewer from "./cityViewer/CityViewer";
+import Header from "../header/Header";
+import TilesLibrary from "../sideBar/SideBar";
+import CityBuilder from "../cityBuilder/CityBuilder";
+import CityViewer from "../cityViewer/CityViewer";
 import "./TilesBuilder.css";
 
 const baseTiles = [

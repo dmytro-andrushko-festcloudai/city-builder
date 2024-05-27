@@ -1,5 +1,5 @@
 
-import TilesBuilder from "../../components/TilesBuilder";
+import TilesBuilder from "../../components/builder/TilesBuilder";
 import "./App.css";
 
 function App() {
