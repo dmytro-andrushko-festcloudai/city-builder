@@ -1,10 +1,11 @@
 import { useState } from "react";
-import ScrollContainer from "react-indiana-drag-scroll";
-import { indexToViewPosition } from "../../providers/TilesService";
-import Tooltip2 from "./tooltip/Tooltip";
-import style from "./cityViewer.module.css";
-import { BLOCK_LIBRARY, BLOCK_TYPES } from "../../constants";
 import { Tooltip } from "@mui/material";
+import ScrollContainer from "react-indiana-drag-scroll";
+import { indexToViewPosition } from "../../../../providers/TilesService";
+import TooltipContent from "../tooltipContent/TooltipContent";
+import { BLOCK_LIBRARY, BLOCK_TYPES } from "../../../../constants";
+import { BlockType } from "../../../../types";
+import style from "./cityViewer.module.css";
 
 const getTileIdxFromBtnEvent = (
   e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -19,6 +20,7 @@ const getTileIdxFromBtnEvent = (
 type CityViewerProps = {
   tiles: number[];
   gridSize: number;
+  businesses: BlockType[];
   offsetX?: number;
   offsetY?: number;
 };
@@ -28,14 +30,14 @@ const sx = {
     backgroundColor: "#f54349",
     borderRadius: "20px",
     padding: " 10px 20px  20px 20px",
-    maxWidth: "300px",
-    width: "300px",
+    maxWidth: "unset",
   },
 };
 
 export default function CityViewer({
-  tiles,
+  // tiles,
   gridSize = 6,
+  businesses,
   offsetX = 150 * gridSize,
   offsetY = -300,
 }: CityViewerProps) {
@@ -66,7 +68,7 @@ export default function CityViewer({
 
   return (
     <ScrollContainer className={style.tilesView}>
-      {tiles.map((tile, i) => {
+      {businesses.map((business, i) => {
         const { top, left } = indexToViewPosition(
           i,
           gridSize,
@@ -74,10 +76,10 @@ export default function CityViewer({
           offsetY
         );
 
-        const { url, type } = BLOCK_LIBRARY[tile];
+        const { url, type } = BLOCK_LIBRARY[business.imgId];
 
         const withTooltip =
-          BLOCK_LIBRARY[tile].type === BLOCK_TYPES.business.type;
+          BLOCK_LIBRARY[business.imgId].type === BLOCK_TYPES.business.type;
 
         return (
           <div
@@ -96,8 +98,13 @@ export default function CityViewer({
             {withTooltip ? (
               <Tooltip
                 onClose={closeHandler}
-                open={selected===i}
-                title={<Tooltip2 onClose={closeHandler} />}
+                open={selected === i}
+                title={
+                  <TooltipContent
+                    onClose={closeHandler}
+                    business={business}
+                  />
+                }
                 placement="top"
                 disableFocusListener
                 disableHoverListener

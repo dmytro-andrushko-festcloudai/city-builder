@@ -1,0 +1,11 @@
+.tilesBuilder {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex: 1 0 0;
+}

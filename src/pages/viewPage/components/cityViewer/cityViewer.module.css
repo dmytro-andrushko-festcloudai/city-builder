@@ -1,5 +1,4 @@
 .tilesView {
-  height: calc(100% - 80px);
   flex-grow: 1;
   overflow: scroll;
   position: relative;
@@ -13,7 +12,12 @@
   width: 260px;
   height: 460px;
   position: absolute;
+  cursor: pointer;
   pointer-events: none;
+}
+
+.withHover .tileBtn:hover {
+  opacity: 1;
 }
 
 .tileBtn {
@@ -26,18 +30,9 @@
   will-change: opacity;
   opacity: 0;
   transition: opacity 0.1s;
+  position: relative;
 }
 
-.tile-btn:hover {
-  opacity: 1;
-}
-
-.withHover:hover {
-  background-image: var(--hover-image) !important;
-}
-
-.withError .tileBtn:hover {
-  background: rgba(255, 38, 38, 0.4);
-  opacity: 1;
-  cursor: not-allowed;
+.tooltip {
+  background-color: red;
 }
