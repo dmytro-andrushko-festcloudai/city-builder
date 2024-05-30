@@ -8,6 +8,7 @@ import {
 import AddBlockModal from "../addBlockModal/AddBlockModal";
 import style from "./cityBuilder.module.css";
 import { BlockType } from "../../../../types";
+import { useBuilder } from "../../../../builderContext/builderContext";
 
 type CityBuilderProps = {
   businesses: BlockType[];
@@ -19,7 +20,7 @@ type CityBuilderProps = {
   openModal: boolean;
   handleClose: () => void;
   currentBlock: null | BlockType;
-  onSave: (data: Omit<BlockType, 'imgId'>) => void;
+  onSave: (data: Omit<BlockType, "imgId">) => void;
 };
 
 const CityBuilder = ({
@@ -35,6 +36,8 @@ const CityBuilder = ({
 
   onSave,
 }: CityBuilderProps) => {
+  const { zoom } = useBuilder();
+
   const handleClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     newData: BlockType
@@ -50,26 +53,27 @@ const CityBuilder = ({
       }
     }
   };
-
+  console.log(zoom, "===>");
   return (
     <>
       <ScrollContainer className={style.tilesView}>
-        {businesses.map((business, i) => {
-          const { top, left } = indexToViewPosition(
-            i,
-            gridSize,
-            offsetX,
-            offsetY
-          );
+        {/* <div style={{ scale: zoom }}> */}
+          {businesses.map((business, i) => {
+            const { top, left } = indexToViewPosition(
+              i,
+              gridSize,
+              offsetX,
+              offsetY
+            );
 
-          const currentImgId =
-            currentBlock && currentBlock?.imgId
-              ? currentBlock?.imgId
-              : business.imgId;
-          return (
-            <div
-              key={i}
-              className={`${style.tile} 
+            const currentImgId =
+              currentBlock && currentBlock?.imgId
+                ? currentBlock?.imgId
+                : business.imgId;
+            return (
+              <div
+                key={i}
+                className={`${style.tile} 
               ${
                 BLOCK_LIBRARY[business.imgId].type !== BLOCK_TYPES.business.type
                   ? style.withHover
@@ -78,28 +82,29 @@ const CityBuilder = ({
                   : ""
               }
               `}
-              style={{
-                backgroundImage: `url(${BLOCK_LIBRARY[business.imgId].url})`,
-                top,
-                left,
-                // @ts-expect-error: Unreachable code error
-                "--hover-image": `url(${BLOCK_LIBRARY[currentImgId].url})`,
-              }}
-            >
-              <div
-                className={`${style.tileBtn} tileBtn`}
-                data-tile-idx={i}
-                onMouseDown={(e) => {
-                  handleClick(e, {
-                    ...business,
-                     // @ts-expect-error: Unreachable code error
-                    imgId: business.imgId || currentBlock?.imgId,
-                  });
+                style={{
+                  backgroundImage: `url(${BLOCK_LIBRARY[business.imgId].url})`,
+                  top,
+                  left,
+                  // @ts-expect-error: Unreachable code error
+                  "--hover-image": `url(${BLOCK_LIBRARY[currentImgId].url})`,
                 }}
-              />
-            </div>
-          );
-        })}
+              >
+                <div
+                  className={`${style.tileBtn} tileBtn`}
+                  data-tile-idx={i}
+                  onMouseDown={(e) => {
+                    handleClick(e, {
+                      ...business,
+                      // @ts-expect-error: Unreachable code error
+                      imgId: business.imgId || currentBlock?.imgId,
+                    });
+                  }}
+                />
+              </div>
+            );
+          })}
+        {/* </div> */}
       </ScrollContainer>
 
       {openModal && currentBlock && (

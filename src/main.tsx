@@ -7,12 +7,15 @@ import "@fontsource/roboto/700.css";
 import App from "./containers/app/App";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./theme";
+import { BuilderProvider } from "./builderContext/builderContext";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <BuilderProvider>
+        <App />
+      </BuilderProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

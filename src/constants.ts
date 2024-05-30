@@ -6,6 +6,7 @@ import imgSrc6 from "./assets/milk_cooperation_small.png";
 import imgSrc7 from "./assets/milk_cooperation.png";
 import imgSrc8 from "./assets/halychyna_alchemy.png";
 import imgSrc9 from "./assets/Ribs.png";
+import imgSrc10 from "./assets/VSL.png";
 import { BlockType } from "./types";
 import { SelectOptionType } from "./components/ui/select/Select";
 
@@ -23,6 +24,7 @@ export const BLOCK_LIBRARY = [
   { url: imgSrc7, type: BLOCK_TYPES.business.type },
   { url: imgSrc8, type: BLOCK_TYPES.business.type },
   { url: imgSrc9, type: BLOCK_TYPES.business.type },
+  { url: imgSrc10, type: BLOCK_TYPES.business.type },
 ];
 
 export const BLOCKS_INIT = [
@@ -60,6 +62,7 @@ export const businessOptions: SelectOptionType[] = [
   { label: "Галицька алхімія", value: "013" },
   { label: "Криївка", value: "014" },
   { label: "Львівська копальня кави", value: "015" },
+  { label: "Видавництво Старого Лева", value: "016" },
 ];
 
 export const dataTypeOptions: SelectOptionType[] = [
@@ -71,6 +74,15 @@ export const dataTypeOptions: SelectOptionType[] = [
 export const viewTypeOptions: SelectOptionType[] = [
   { label: "Таблиця", value: "table" },
   { label: "Графік", value: "chart" },
+];
+
+export const zoomOptions: SelectOptionType[] = [
+  { label: "25%", value: "0.25" },
+  { label: "50%", value: "0.5" },
+  { label: "75%", value: "0.75" },
+  { label: "100%", value: "1" },
+  { label: "125%", value: "1.25" },
+  { label: "150%", value: "1.5" },
 ];
 
 export const BLOCKS_INIT_NEW: BlockType[] = [
